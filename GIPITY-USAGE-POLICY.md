@@ -39,4 +39,4 @@ If you’d like:
 
 ---
 
-Thanks for respecting the spirit of this project — and happy building!
+Thanks for respecting the spirit of this project. Happy building!
