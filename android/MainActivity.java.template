@@ -1,0 +1,16 @@
+package {{APP_ID}};
+
+import android.os.Bundle;
+import androidx.core.splashscreen.SplashScreen;
+import com.getcapacitor.BridgeActivity;
+import ee.forgr.capacitor_navigation_bar.NavigationBarPlugin;
+
+public class MainActivity extends BridgeActivity {
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        registerPlugin(NavigationBarPlugin.class);
+        
+        SplashScreen splashScreen = SplashScreen.installSplashScreen(this);
+        super.onCreate(savedInstanceState);
+    }
+}

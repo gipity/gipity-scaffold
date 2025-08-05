@@ -1,0 +1,76 @@
+modules = ["nodejs-20", "bash", "web", "python-3.11"]
+run = "npm run dev"
+hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
+
+[nix]
+channel = "stable-24_05"
+packages = ["freetype", "lcms2", "libimagequant", "libjpeg", "libtiff", "libwebp", "openjpeg", "zlib"]
+
+[deployment]
+deploymentTarget = "autoscale"
+build = ["npm", "run", "build"]
+run = ["npm", "run", "start"]
+
+[workflows]
+runButton = "Project"
+
+[[workflows.workflow]]
+name = "Project"
+mode = "parallel"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "workflow.run"
+args = "Start application"
+
+[[workflows.workflow]]
+name = "Start application"
+author = "agent"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "npm run dev"
+waitForPort = 5000
+
+[[workflows.workflow]]
+name = "Gipity Image Resizer+Generation"
+mode = "sequential"
+author = 38931223
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "chmod +x gipity-scripts/gipity-image-resizer.py"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "python3 gipity-scripts/gipity-image-resizer.py"
+
+[[workflows.workflow]]
+name = "Gipity Appflow Prepare (Dev)"
+mode = "sequential"
+author = 38931223
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "chmod +x gipity-scripts/gipity-appflow-prepare.sh"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./gipity-scripts/gipity-appflow-prepare.sh dev"
+
+[[workflows.workflow]]
+name = "Gipity Appflow Prepare (Prod)"
+mode = "sequential"
+author = 38931223
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "chmod +x gipity-scripts/gipity-appflow-prepare.sh"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "./gipity-scripts/gipity-appflow-prepare.sh prod"
+
+[[ports]]
+localPort = 5000
+externalPort = 80

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- General config for project domains -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">replit.dev</domain>
+        <domain includeSubdomains="true">replit.com</domain>
+        <domain includeSubdomains="true">replit.app</domain>
+        <domain includeSubdomains="true">{{CUSTOM_DOMAIN}}</domain>
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+        </trust-anchors>
+    </domain-config>
+    <!-- Enable debugging and be more permissive for WebView -->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+        </trust-anchors>
+    </debug-overrides>
+    <!-- Permissive base config - allows all HTTPS, blocks only HTTP cleartext -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system"/>
+            <certificates src="user"/>
+        </trust-anchors>
+    </base-config>
+</network-security-config>

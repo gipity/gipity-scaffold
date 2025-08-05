@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">{{APP_PRIMARY_COLOR}}</color>
+    <color name="colorPrimaryDark">{{APP_PRIMARY_DARK_COLOR}}</color>
+    <color name="colorAccent">{{APP_ACCENT_COLOR}}</color>
+</resources>

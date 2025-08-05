@@ -1,0 +1,68 @@
+{
+  "appId": "{{APP_ID}}",
+  "appName": "{{APP_NAME}}",
+  "webDir": "dist/public",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "{{APP_SPLASH_BACKGROUND_COLOR}}",
+      "androidSplashResourceName": "splash_layered",
+      "androidScaleType": "CENTER_INSIDE",
+      "showSpinner": false,
+      "splashFullScreen": true,
+      "splashImmersive": true
+    },
+    "StatusBar": {
+      "style": "default",
+      "backgroundColor": "#f7fafc"
+    },
+    "Keyboard": {
+      "resize": "none",
+      "resizeOnFullScreen": true
+    },
+    "CapacitorHttp": {
+      "enabled": true
+    },
+    "SafeArea": {
+      "enabled": true,
+      "customColorsForSystemBars": true,
+      "statusBarColor": "#476a92",
+      "statusBarContent": "light"
+    }
+  },
+  "ios": {
+    "scheme": "{{APP_SCHEME}}",
+    "allowsArbitraryLoads": true,
+    "allowsArbitraryLoadsInWebContent": true,
+    "allowsLocalNetworking": true,
+    "overrideUserAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 {{APP_USER_AGENT}}/1.0",
+    "contentInsetAdjustmentBehavior": "never",
+    "limitsNavigationsToAppBoundDomains": false,
+    "scrollEnabled": false,
+    "webView": {
+      "allowsBackForwardNavigationGestures": false,
+      "bounces": false,
+      "scrollEnabled": false
+    }
+  },
+  "android": {
+    "allowMixedContent": true,
+    "captureInput": true,
+    "webContentsDebuggingEnabled": false,
+    "appendUserAgent": "{{APP_USER_AGENT}}/1.0",
+    "overrideUserAgent": "Mozilla/5.0 (Linux; Android 10; Mobile) AppleWebKit/537.36 {{APP_USER_AGENT}}/1.0",
+    "useLegacyBridge": false,
+    "loggingBehavior": "debug",
+    "mixedContentMode": "compatibility"
+  },
+  "server": {
+    "androidScheme": "https",
+    "cleartext": false,
+    "allowNavigation": [
+      "{{CUSTOM_DOMAIN}}",
+      "*.{{CUSTOM_DOMAIN}}",
+      "*.replit.app",
+      "*.replit.dev"
+    ]
+  }
+}
