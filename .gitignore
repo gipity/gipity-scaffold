@@ -1,0 +1,78 @@
+#==============================================================================
+# GIPITY SCAFFOLD APP - EXCLUSIONS
+#==============================================================================
+
+# Auto-generated scaffold deployment folder (created by gipity-appflow-prepare.sh)
+gipity-appflow/
+
+# Gipity development tools and documents
+README (original notes).md
+replit (original notes).md
+
+# General development artifacts and user uploads
+attached_assets/
+
+#==============================================================================
+# NODE.JS & DEPENDENCIES
+#==============================================================================
+
+# Package manager
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+.turbo/
+
+#==============================================================================
+# BUILD OUTPUTS
+#==============================================================================
+
+# Compiled application
+dist/
+build/
+
+# Archive files
+*.tgz
+*.tar.gz
+
+#==============================================================================
+# DEVELOPMENT ENVIRONMENT
+#==============================================================================
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor and IDE files
+.DS_Store
+.vscode/
+.idea/
+
+# Temporary folders
+tmp/
+temp/
+
+#==============================================================================
+# LOGGING & DEBUGGING
+#==============================================================================
+
+# Log files
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Test coverage
+coverage/

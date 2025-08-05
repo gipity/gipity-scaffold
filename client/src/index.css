@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure app has white background by default (not transparent) */
+html, body {
+  background-color: white !important;
+}
+
+#root {
+  background-color: white !important;
+  min-height: 100vh;
+}
+
+:root {
+  --background: hsl(203, 100%, 98%);
+  --foreground: hsl(210, 11%, 15%);
+  --muted: hsl(210, 40%, 98%);
+  --muted-foreground: hsl(215, 13%, 65%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 11%, 15%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 11%, 15%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(207, 34%, 44%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 98%);
+  --secondary-foreground: hsl(222, 13%, 11%);
+  --accent: hsl(207, 74%, 54%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(207, 34%, 44%);
+  --radius: 0.5rem;
+  
+
+  
+  /* Safe Area Insets - with fallbacks for when plugin provides values */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+}
+
+.dark {
+  --background: hsl(222, 84%, 5%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 33%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(222, 84%, 5%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 5%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 33%, 17%);
+  --input: hsl(217, 33%, 17%);
+  --primary: hsl(207, 34%, 44%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(217, 33%, 17%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(207, 74%, 54%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(212, 72%, 59%);
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html, body, #root {
+    height: 100dvh; /* Dynamic viewport height for iPhone 16 Pro Max */
+    overflow: hidden;
+  }
+  
+  body {
+    /* Remove top padding to fix status bar visibility */
+    padding-top: 0;
+    padding-bottom: var(--safe-area-inset-bottom, 0px);
+    padding-left: var(--safe-area-inset-left, 0px);
+    padding-right: var(--safe-area-inset-right, 0px);
+  }
+
+  /* Safe area utility classes using CSS variables from SafeArea plugin */
+  @layer utilities {
+    .safe-top { padding-top: var(--safe-area-inset-top, 0px); }
+    .safe-bottom { padding-bottom: var(--safe-area-inset-bottom, 0px); }
+    .safe-left { padding-left: var(--safe-area-inset-left, 0px); }
+    .safe-right { padding-right: var(--safe-area-inset-right, 0px); }
+  }
+}
+
+@layer utilities {
+  .safe-top {
+    padding-top: env(safe-area-inset-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  
+  .safe-left {
+    padding-left: env(safe-area-inset-left);
+  }
+  
+  .safe-right {
+    padding-right: env(safe-area-inset-right);
+  }
+  
+  .safe-all {
+    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  .mobile-optimized {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+}
+
+/* Backup CSS padding for mobile browsers */
+@media (max-width: 768px) and (pointer: coarse) {
+  .mobile-main-content {
+    padding-bottom: 250px;
+  }
+}
+
+/* PWA styles */
+@media (display-mode: standalone) {
+  body {
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* iOS-specific viewport fixes for Capacitor */
+@supports (-webkit-touch-callout: none) {
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /* Remove iOS Safari quirks in native WebView */
+    -webkit-text-size-adjust: 100%;
+    /* Prevent iOS Safari from adding extra space */
+    -webkit-overflow-scrolling: touch;
+    /* Disable zoom and bounce in WebView */
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  #root {
+    height: 100%;
+    width: 100%;
+  }
+  
+
+}
+
+/* Animation classes */
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+    opacity: 1;
+  }
+  80%, 100% {
+    transform: scale(2.33);
+    opacity: 0;
+  }
+}
+
+.animate-voice-pulse {
+  animation: voice-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes voice-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* iOS Camera Preview WebView Transparency Fixes */
+.camera-preview-active {
+  --background: transparent !important;
+}
+
+.camera-preview-active html,
+.camera-preview-active body,
+.camera-preview-active #root {
+  background-color: transparent !important;
+}
+
+/* Ensure camera preview container is properly positioned */
+#camera-preview-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: transparent;
+}
+
+/* iOS WebView transparency for camera preview */
+@supports (-webkit-touch-callout: none) {
+  .camera-preview-active {
+    background-color: transparent !important;
+  }
+  
+  .camera-preview-active html,
+  .camera-preview-active body {
+    background-color: transparent !important;
+    --background: transparent !important;
+  }
+}
