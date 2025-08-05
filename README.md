@@ -28,7 +28,7 @@ This **Readme document** and the **replit.md instruction file** are the key docu
 
 However, the current versions were written by *Replit agent* as placeholders. They are only intended at this time to give a flavour, and may not be accurate. They have not been read, reviewed or verified by any human *Gipity* eyes.
 
-`Please get in touch for human support during pre-launch phase`!
+`Please get in touch for human support from Steve during the pre-launch phase`
 
 ---
 
