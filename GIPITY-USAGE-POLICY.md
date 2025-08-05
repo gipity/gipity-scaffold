@@ -16,7 +16,7 @@ However, this repo is part of a broader ecosystem and business. To ensure fairne
 
 ---
 
-## 🚫 Please *Don’t*:
+## 🚫 Please *Don't*:
 - **Resell or repackage this scaffold** as part of a commercial toolkit, template bundle, or paid product
 - **Offer paid services** that bundle or clone this repo without significant changes
 - **Create a competing support service or studio** based on this codebase or branding
