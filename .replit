@@ -6,6 +6,14 @@ hidden = [".config", ".git", "generated-icon.png", "node_modules", "dist"]
 channel = "stable-24_05"
 packages = ["freetype", "lcms2", "libimagequant", "libjpeg", "libtiff", "libwebp", "libxcrypt", "openjpeg", "tcl", "tk", "zlib"]
 
+[packager]
+language = "python3"
+
+[packager.features]
+guessImports = true
+packageSearch = true
+enabledForHosting = false
+
 [deployment]
 deploymentTarget = "autoscale"
 build = ["npm", "run", "build"]
