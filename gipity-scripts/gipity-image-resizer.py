@@ -43,22 +43,27 @@ Master Image Requirements (in master-images/ folder):
    - Aspect ratio: Landscape rectangle (3.75:1 ratio)
    - Usage: Header logo for web, iOS, and Android applications
 
-3. splash-square-master.png: 2732x2732px PNG
+3. logo-inverted-master.png: 480x128px PNG
+   - Transparency: REQUIRED (transparent background)
+   - Aspect ratio: Landscape rectangle (3.75:1 ratio)
+   - Usage: Inverted color variant of header logo for optional use in apps
+
+4. splash-square-master.png: 2732x2732px PNG
    - Transparency: OPTIONAL (can use solid color background)
    - Padding: 400px safe area from edges
    - Usage: iOS splash screens (resized to various dimensions)
 
-4. splash-android-portrait-master.png: 1280x1920px PNG
+5. splash-android-portrait-master.png: 1280x1920px PNG
    - Transparency: OPTIONAL (can use solid color background)
    - Padding: 200px horizontal, 300px vertical safe areas
    - Usage: Android portrait splash screens
 
-5. splash-android-landscape-master.png: 1920x1280px PNG
+6. splash-android-landscape-master.png: 1920x1280px PNG
    - Transparency: OPTIONAL (can use solid color background)
    - Padding: 300px horizontal, 200px vertical safe areas
    - Usage: Android landscape splash screens
 
-6. splash-icon-square-master.png: 1024x1024px PNG
+7. splash-icon-square-master.png: 1024x1024px PNG
    - Transparency: REQUIRED (transparent background)
    - Padding: 200px minimum safe area from edges
    - Usage: Android 12+ centered splash screen icons
@@ -223,6 +228,31 @@ def generate_web_logos(logo_master_path):
     print(f"✅ Web logos and assets: {success_count}/{total_expected} generated")
     return success_count
 
+def generate_web_logos_inverted(logo_inverted_master_path):
+    """Generate web header inverted logos and responsive icon assets"""
+    print("Generating Web header inverted logos and responsive assets...")
+    
+    ensure_directory(get_project_path("public/icons"))
+    ensure_directory(get_project_path("client/src/assets"))
+    
+    success_count = 0
+    
+    # Logo variants at different DPI levels
+    logo_variants = [
+        ((120, 32), get_project_path("public/icons/logo-inverted.png")),           # 1x for public folder
+        ((120, 32), get_project_path("client/src/assets/logo-inverted.png")),      # 1x for Vite assets
+        ((240, 64), get_project_path("client/src/assets/logo-inverted@2x.png")),   # 2x for high-DPI
+        ((360, 96), get_project_path("client/src/assets/logo-inverted@3x.png")),   # 3x for very high-DPI
+    ]
+    
+    # Generate logo variants
+    for size, output_path in logo_variants:
+        if resize_image(logo_inverted_master_path, output_path, size, maintain_aspect=True):
+            success_count += 1
+    
+    print(f"✅ Web inverted logos and assets: {success_count}/{len(logo_variants)} generated")
+    return success_count
+
 #==============================================================================
 # iOS ASSET GENERATION
 #==============================================================================
@@ -314,6 +344,28 @@ def generate_ios_logos(logo_master_path):
             success_count += 1
     
     print(f"✅ iOS header logos: {success_count}/{len(ios_logo_sizes)} generated")
+    return success_count
+
+def generate_ios_logos_inverted(logo_inverted_master_path):
+    """Generate iOS header inverted logos"""
+    print("Generating iOS header inverted logos...")
+    
+    ios_logo_sizes = [
+        ("logo-inverted.png", (120, 32)),      # 1x density
+        ("logo-inverted@2x.png", (240, 64)),   # 2x density
+        ("logo-inverted@3x.png", (360, 96)),   # 3x density
+        ("logo-inverted@4x.png", (480, 128)),  # 4x density (direct from master)
+    ]
+    
+    ensure_directory("ios/App/App/Assets.xcassets/LogoInverted.imageset")
+    
+    success_count = 0
+    for filename, size in ios_logo_sizes:
+        output_path = f"ios/App/App/Assets.xcassets/LogoInverted.imageset/{filename}"
+        if resize_image(logo_inverted_master_path, output_path, size, maintain_aspect=True):
+            success_count += 1
+    
+    print(f"✅ iOS header inverted logos: {success_count}/{len(ios_logo_sizes)} generated")
     return success_count
 
 #==============================================================================
@@ -408,6 +460,41 @@ def generate_android_logos(logo_master_path):
         success_count += 1
     
     print(f"✅ Android header logos: {success_count}/{len(android_densities) + 1} generated")
+    return success_count
+
+def generate_android_logos_inverted(logo_inverted_master_path):
+    """Generate Android header inverted logos"""
+    print("Generating Android header inverted logos...")
+    
+    android_densities = [
+        ("ldpi", 0.75),    # 90x24
+        ("mdpi", 1.0),     # 120x32
+        ("hdpi", 1.5),     # 180x48
+        ("xhdpi", 2.0),    # 240x64
+        ("xxhdpi", 3.0),   # 360x96
+        ("xxxhdpi", 4.0),  # 480x128 (matches master)
+    ]
+    
+    success_count = 0
+    for density, scale in android_densities:
+        dir_path = get_project_path(f"android/app/src/main/res/drawable-{density}")
+        ensure_directory(dir_path)
+        
+        # Calculate scaled dimensions from 120x32 base
+        scaled_width = int(120 * scale)
+        scaled_height = int(32 * scale)
+        
+        output_path = f"{dir_path}/logo-inverted.png"
+        if resize_image(logo_inverted_master_path, output_path, (scaled_width, scaled_height), maintain_aspect=True):
+            success_count += 1
+    
+    # Create base inverted logo in drawable folder at 1x size
+    ensure_directory(get_project_path("android/app/src/main/res/drawable"))
+    base_logo_path = get_project_path("android/app/src/main/res/drawable/logo-inverted.png")
+    if resize_image(logo_inverted_master_path, base_logo_path, (120, 32), maintain_aspect=True):
+        success_count += 1
+    
+    print(f"✅ Android header inverted logos: {success_count}/{len(android_densities) + 1} generated")
     return success_count
 
 def create_android_adaptive_icon_xmls():
@@ -670,6 +757,7 @@ def main():
     master_images = {
         "icon": get_project_path("master-images/icon-master.png"),
         "logo": get_project_path("master-images/logo-master.png"),
+        "logo_inverted": get_project_path("master-images/logo-inverted-master.png"),
         "splash_square": get_project_path("master-images/splash-square-master.png"),
         "splash_portrait": get_project_path("master-images/splash-android-portrait-master.png"),
         "splash_landscape": get_project_path("master-images/splash-android-landscape-master.png"),
@@ -686,6 +774,7 @@ def main():
         print("\nRequired master images in master-images/ folder:")
         print("   - icon-master.png (1024x1024)")
         print("   - logo-master.png (480x128)")
+        print("   - logo-inverted-master.png (480x128)")
         print("   - splash-square-master.png (2732x2732)")
         print("   - splash-android-portrait-master.png (1280x1920)")
         print("   - splash-android-landscape-master.png (1920x1280)")
@@ -703,21 +792,24 @@ def main():
     print("=" * 50)
     web_icons = generate_web_icons(master_images["icon"]) or 0
     web_logos = generate_web_logos(master_images["logo"]) or 0
-    total_images_generated += web_icons + web_logos
+    web_logos_inverted = generate_web_logos_inverted(master_images["logo_inverted"]) or 0
+    total_images_generated += web_icons + web_logos + web_logos_inverted
     
     print("\n" + "=" * 50)
     print("iOS ASSETS")
     print("=" * 50)
     ios_icons = generate_ios_icons(master_images["icon"]) or 0
     ios_logos = generate_ios_logos(master_images["logo"]) or 0
-    total_images_generated += ios_icons + ios_logos
+    ios_logos_inverted = generate_ios_logos_inverted(master_images["logo_inverted"]) or 0
+    total_images_generated += ios_icons + ios_logos + ios_logos_inverted
     
     print("\n" + "=" * 50)
     print("ANDROID ASSETS")
     print("=" * 50)
     android_icons = generate_android_icons(master_images["icon"]) or 0
     android_logos = generate_android_logos(master_images["logo"]) or 0
-    total_images_generated += android_icons + android_logos
+    android_logos_inverted = generate_android_logos_inverted(master_images["logo_inverted"]) or 0
+    total_images_generated += android_icons + android_logos + android_logos_inverted
     
     print("\n" + "=" * 50)
     print("SPLASH SCREENS")
