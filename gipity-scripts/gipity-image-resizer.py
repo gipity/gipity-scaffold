@@ -484,13 +484,13 @@ def generate_android_logos_inverted(logo_inverted_master_path):
         scaled_width = int(120 * scale)
         scaled_height = int(32 * scale)
         
-        output_path = f"{dir_path}/logo-inverted.png"
+        output_path = f"{dir_path}/logo_inverted.png"
         if resize_image(logo_inverted_master_path, output_path, (scaled_width, scaled_height), maintain_aspect=True):
             success_count += 1
     
     # Create base inverted logo in drawable folder at 1x size
     ensure_directory(get_project_path("android/app/src/main/res/drawable"))
-    base_logo_path = get_project_path("android/app/src/main/res/drawable/logo-inverted.png")
+    base_logo_path = get_project_path("android/app/src/main/res/drawable/logo_inverted.png")
     if resize_image(logo_inverted_master_path, base_logo_path, (120, 32), maintain_aspect=True):
         success_count += 1
     
