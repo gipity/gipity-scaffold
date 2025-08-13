@@ -34,7 +34,7 @@ export const Help: React.FC = () => {
                 Ready to build your MVP?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-                Get the Gipity scaffolding app and join the online support studio and community
+                Get the Gipity scaffolding app and join our support studio today
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                 <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium" asChild>
