@@ -115,34 +115,6 @@ export const Home: React.FC = () => {
             <CardContent className="pt-6">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <FileText className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Rich Content System</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Notes with titles, content, and photo attachments using Supabase storage</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <Camera className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Native Camera Integration</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Capture photos with native mobile camera, web fallback included</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
                   <Shield className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </div>
                 <div>
@@ -161,7 +133,35 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Production Database</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Supabase PostgreSQL with RLS policies and optimized queries</p>
+                  <p className="text-gray-600 dark:text-gray-400">Supabase database and file storage with RLS policies</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Smartphone className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">iOS & Android Apps</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Native mobile deployment with Capacitor and Ionic Appflow integration</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Camera className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Native Camera Integration</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Capture photos with native mobile camera, web fallback included</p>
                 </div>
               </div>
             </CardContent>
