@@ -23,11 +23,7 @@ import icon2x from '../assets/icon-128x128.png';
 import icon3x from '../assets/icon-192x192.png';
 
 export const Home: React.FC = () => {
-  const { user } = useAuth();
-
-  if (!user) {
-    return <div>Loading...</div>;
-  }
+  const { user, isAuthenticated } = useAuth();
 
   return (
     <div className="p-4 space-y-8 min-h-screen bg-white dark:bg-gray-900">
@@ -43,10 +39,16 @@ export const Home: React.FC = () => {
             />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Welcome back{user?.first_name ? `, ${user.first_name}` : ''}
+            {isAuthenticated() && user?.first_name 
+              ? `Welcome back, ${user.first_name}` 
+              : 'Gipity Scaffolding App'
+            }
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            Your native, web & PWA scaffolding app is ready to customize
+            {isAuthenticated() 
+              ? 'Your native, web & PWA scaffolding app is ready to customize'
+              : 'Build native iOS & Android apps with web technologies'
+            }
           </p>
         </div>
       </div>
