@@ -100,7 +100,7 @@ export const Home: React.FC = () => {
       </Card>
 
       {/* What's Already Built */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#476A92] dark:text-white mb-4">
             What's already built
