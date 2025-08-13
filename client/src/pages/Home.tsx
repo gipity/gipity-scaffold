@@ -133,7 +133,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Production Database</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Supabase database and file storage with RLS policies</p>
+                  <p className="text-gray-600 dark:text-gray-400">Supabase database and file storage with RLS policies and security</p>
                 </div>
               </div>
             </CardContent>
@@ -147,7 +147,7 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">iOS & Android Apps</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Native mobile deployment with Capacitor and Ionic Appflow integration</p>
+                  <p className="text-gray-600 dark:text-gray-400">Native mobile deployment with Capacitor and Appflow integration</p>
                 </div>
               </div>
             </CardContent>
