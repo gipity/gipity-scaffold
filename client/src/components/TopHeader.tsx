@@ -28,6 +28,15 @@ export default function TopHeader() {
   // Check if debug console should be shown (controlled by environment variable)
   const isDebugConsoleEnabled = import.meta.env.VITE_SHOW_DEBUG_CONSOLE === 'true';
 
+  const handleNotesClick = (e: React.MouseEvent) => {
+    if (!isAuthenticated()) {
+      e.preventDefault();
+      setLocation('/login');
+    } else {
+      setLocation('/notes');
+    }
+  };
+
   const handleLogout = () => {
     debug.log('Logout button clicked');
     logout();
@@ -141,6 +150,30 @@ export default function TopHeader() {
                   Home
                 </Button>
                 <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleNotesClick}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  Demo
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation('/about')}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  About
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation('/help')}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  Help
+                </Button>
+                <Button
                   variant="outline"
                   size="sm"
                   onClick={() => setLocation('/login')}
@@ -190,6 +223,39 @@ export default function TopHeader() {
                 className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
               >
                 Home
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={(e) => {
+                  handleNotesClick(e);
+                  setShowMobileMenu(false);
+                }}
+                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+              >
+                Demo
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setLocation('/about');
+                  setShowMobileMenu(false);
+                }}
+                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+              >
+                About
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => {
+                  setLocation('/help');
+                  setShowMobileMenu(false);
+                }}
+                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+              >
+                Help
               </Button>
               <Button
                 variant="outline"
