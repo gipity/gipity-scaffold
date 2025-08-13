@@ -70,15 +70,41 @@ export default function TopHeader() {
           {isAuthenticated() ? (
             /* Authenticated user: Home button + Settings dropdown */
             <>
-              {/* Desktop: Show Home button */}
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setLocation('/')}
-                className="hidden md:inline-flex text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-              >
-                Home
-              </Button>
+              {/* Desktop Navigation */}
+              <div className="hidden md:flex items-center space-x-2">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation('/')}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  Home
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={handleNotesClick}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  Demo
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation('/about')}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  About
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setLocation('/help')}
+                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                >
+                  Help
+                </Button>
+              </div>
 
               {/* Mobile: Show hamburger menu */}
               <div className="md:hidden">
