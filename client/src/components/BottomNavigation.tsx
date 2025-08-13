@@ -92,7 +92,7 @@ export default function BottomNavigation() {
             }`}
           >
             <Calendar size={20} />
-            <span className="text-xs mt-1 font-medium">Notes</span>
+            <span className="text-xs mt-1 font-medium">Demo</span>
           </Link>
 
           {/* About */}
