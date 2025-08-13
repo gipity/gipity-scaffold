@@ -21,7 +21,7 @@ export const About: React.FC = () => {
               className="w-16 h-16"
             />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Task Management Scaffold</h1>
+          <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Gipity Scaffolding App</h1>
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto">
             A production-ready app foundation built for rapid prototyping and MVP development
           </p>
@@ -32,6 +32,63 @@ export const About: React.FC = () => {
             </Badge>
           </div>
         </div>
+      </div>
+
+      {/* Deployment Options */}
+      <div className="max-w-4xl mx-auto">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <Globe className="w-5 h-5 text-[#476A92]" />
+              Multi-Platform Deployment
+            </CardTitle>
+            <CardDescription>
+              One codebase, deploy everywhere with production-grade infrastructure
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="grid gap-4">
+              <div className="flex items-center justify-between p-4 bg-[#476A92]/5 rounded-lg border border-[#476A92]/20">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-[#476A92]/10 rounded-full flex items-center justify-center">
+                    <Globe className="w-4 h-4 text-[#476A92]" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-800 dark:text-white">Web Application</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Standard web browser deployment</div>
+                  </div>
+                </div>
+                <Badge className="bg-[#476A92] text-white hover:bg-[#3d5c82]">Ready</Badge>
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-[#476A92]/5 rounded-lg border border-[#476A92]/20">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-[#476A92]/10 rounded-full flex items-center justify-center">
+                    <Globe className="w-4 h-4 text-[#476A92]" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-800 dark:text-white">Progressive Web App</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Instant deployment, offline capable</div>
+                  </div>
+                </div>
+                <Badge className="bg-[#476A92] text-white hover:bg-[#3d5c82]">Ready</Badge>
+              </div>
+
+              <div className="flex items-center justify-between p-4 bg-[#476A92]/5 rounded-lg border border-[#476A92]/20">
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 bg-[#476A92]/10 rounded-full flex items-center justify-center">
+                    <Smartphone className="w-4 h-4 text-[#476A92]" />
+                  </div>
+                  <div>
+                    <div className="font-medium text-gray-800 dark:text-white">iOS & Android Apps</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">Native performance via Ionic Appflow</div>
+                  </div>
+                </div>
+                <Badge className="bg-[#476A92] text-white hover:bg-[#3d5c82]">Ready</Badge>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
       {/* Key Features Grid */}
@@ -360,49 +417,7 @@ export const About: React.FC = () => {
         </Card>
       </div>
 
-      {/* Deployment Options */}
-      <div className="max-w-4xl mx-auto">
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Globe className="w-5 h-5 text-[#476A92]" />
-              Multi-Platform Deployment
-            </CardTitle>
-            <CardDescription>
-              One codebase, deploy everywhere with production-grade infrastructure
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="grid gap-4">
-              <div className="flex items-center justify-between p-4 bg-[#476A92]/5 rounded-lg border border-[#476A92]/20">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[#476A92]/10 rounded-full flex items-center justify-center">
-                    <Globe className="w-4 h-4 text-[#476A92]" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-800 dark:text-white">Progressive Web App</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Instant deployment, offline capable</div>
-                  </div>
-                </div>
-                <Badge className="bg-[#476A92] text-white hover:bg-[#3d5c82]">Live</Badge>
-              </div>
 
-              <div className="flex items-center justify-between p-4 bg-[#476A92]/5 rounded-lg border border-[#476A92]/20">
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 bg-[#476A92]/10 rounded-full flex items-center justify-center">
-                    <Smartphone className="w-4 h-4 text-[#476A92]" />
-                  </div>
-                  <div>
-                    <div className="font-medium text-gray-800 dark:text-white">iOS & Android Apps</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">Native performance via Ionic Appflow</div>
-                  </div>
-                </div>
-                <Badge className="bg-[#476A92] text-white hover:bg-[#3d5c82]">Ready</Badge>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
 
       {/* Resources */}
       <div className="max-w-4xl mx-auto">
