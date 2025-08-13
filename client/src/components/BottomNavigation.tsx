@@ -129,7 +129,7 @@ export default function BottomNavigation() {
             }`}
           >
             <Info size={20} />
-            <span className="text-xs mt-1 font-medium">Help</span>
+            <span className="text-xs mt-1 font-medium">Contact</span>
           </Link>
         </div>
       </div>

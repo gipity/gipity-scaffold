@@ -34,7 +34,7 @@ export const MAIN_NAVIGATION: NavigationItem[] = [
   },
   {
     id: 'help',
-    label: 'Help',
+    label: 'Contact',
     path: '/help',
     variant: 'ghost',
     className: 'text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors'
