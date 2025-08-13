@@ -12,7 +12,7 @@ export const About: React.FC = () => {
     <div className="p-4 space-y-6">
       {/* Hero Section */}
       <div className="text-center space-y-4">
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-6">
           <img 
             src={iconImage} 
             srcSet={`${iconImage} 1x, ${icon2x} 2x, ${icon3x} 3x`}
@@ -20,7 +20,7 @@ export const About: React.FC = () => {
             className="w-16 h-16"
           />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Task Management Scaffold</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Task Management Scaffold</h1>
         <p className="text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto">
           A production-ready app foundation built for rapid prototyping and MVP development
         </p>

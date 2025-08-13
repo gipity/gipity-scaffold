@@ -86,12 +86,14 @@ export const Home: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Try the demo features
             </h3>
-            <Link href="/notes">
-              <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-6 py-3">
-                <FileText className="w-5 h-5 mr-2" />
-                Notes + Camera
-              </Button>
-            </Link>
+            <div className="pt-4">
+              <Link href="/notes">
+                <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium">
+                  <FileText className="w-5 h-5 mr-2" />
+                  Notes + Camera
+                </Button>
+              </Link>
+            </div>
           </div>
         </CardContent>
       </Card>
@@ -213,16 +215,17 @@ export const Home: React.FC = () => {
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
                 Join the Gipity Studio for live support and deployment help
               </p>
-              <div className="flex justify-center">
-                <a 
-                  href="https://www.gipity.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#476A92] hover:bg-[#3d5c82] text-white rounded-lg transition-colors text-lg font-medium"
-                >
-                  <Globe className="w-5 h-5" />
-                  gipity.com
-                </a>
+              <div className="flex justify-center pt-4">
+                <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium" asChild>
+                  <a 
+                    href="https://www.gipity.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Globe className="w-5 h-5 mr-2" />
+                    gipity.com
+                  </a>
+                </Button>
               </div>
             </div>
           </CardContent>
