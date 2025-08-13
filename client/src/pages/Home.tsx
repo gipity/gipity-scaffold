@@ -14,7 +14,8 @@ import {
   Star,
   Database,
   Globe,
-  Code2
+  Code2,
+  Mail
 } from 'lucide-react';
 import { Link } from 'wouter';
 import iconImage from '../assets/icon-64x64.png';
@@ -41,11 +42,11 @@ export const Home: React.FC = () => {
               className="w-16 h-16"
             />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Welcome back{user?.first_name ? `, ${user.first_name}` : ''}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            Your native app scaffold is ready to customize
+            Your native, web & PWA scaffolding app is ready to customize
           </p>
         </div>
       </div>
@@ -86,21 +87,20 @@ export const Home: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Try the demo features
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              See what's already working: notes with photos, user auth, and mobile-optimized UI
-            </p>
-            <Link href="/notes">
-              <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-6 py-3">
-                <FileText className="w-5 h-5 mr-2" />
-                Try it Now
-              </Button>
-            </Link>
+            <div className="pt-4">
+              <Link href="/notes">
+                <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium">
+                  <FileText className="w-5 h-5 mr-2" />
+                  Notes + Camera
+                </Button>
+              </Link>
+            </div>
           </div>
         </CardContent>
       </Card>
 
       {/* What's Already Built */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#476A92] dark:text-white mb-4">
             What's already built
@@ -111,34 +111,6 @@ export const Home: React.FC = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8">
-          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <FileText className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Rich Content System</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Notes with titles, content, and photo attachments using Supabase storage</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
-                  <Camera className="w-6 h-6 text-gray-700 dark:text-gray-300" />
-                </div>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Native Camera Integration</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Capture photos with native mobile camera, web fallback included</p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
           <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
             <CardContent className="pt-6">
               <div className="flex items-start gap-4">
@@ -161,7 +133,35 @@ export const Home: React.FC = () => {
                 </div>
                 <div>
                   <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Production Database</h4>
-                  <p className="text-gray-600 dark:text-gray-400">Supabase PostgreSQL with RLS policies and optimized queries</p>
+                  <p className="text-gray-600 dark:text-gray-400">Supabase database and file storage with RLS policies and security</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Smartphone className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">iOS & Android Apps</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Native mobile deployment with Capacitor and Appflow integration</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Camera className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                </div>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Native Camera Integration</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Capture photos with native mobile camera, web fallback included</p>
                 </div>
               </div>
             </CardContent>
@@ -211,30 +211,28 @@ export const Home: React.FC = () => {
           <CardContent className="pt-8 pb-8">
             <div className="text-center space-y-6">
               <h3 className="text-2xl font-bold text-[#476A92] dark:text-white">
-                Need help customizing?
+                Ready to start your MVP app?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-                Join the Gipity Studio for live support and deployment help
+                Get the Gipity scaffolding app and join our support studio today
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a 
-                  href="https://www.gipity.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-[#476A92] hover:bg-[#3d5c82] text-white rounded-lg transition-colors text-lg font-medium"
-                >
-                  <Globe className="w-5 h-5" />
-                  gipity.com
-                </a>
-                <a 
-                  href="https://github.com/gipity/gipity-scaffold" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-600 rounded-lg transition-colors text-lg font-medium"
-                >
-                  <Code2 className="w-5 h-5" />
-                  GitHub Repo
-                </a>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
+                <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium" asChild>
+                  <a 
+                    href="https://www.gipity.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    <Globe className="w-5 h-5 mr-2" />
+                    gipity.com
+                  </a>
+                </Button>
+                <Button variant="outline" className="hover:bg-gray-50 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100 px-8 py-4 text-lg font-medium" asChild>
+                  <a href="mailto:support@gipity.com">
+                    <Mail className="w-5 h-5 mr-2" />
+                    Got questions?
+                  </a>
+                </Button>
               </div>
             </div>
           </CardContent>

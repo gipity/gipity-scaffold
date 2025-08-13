@@ -480,7 +480,7 @@ export const Notes: React.FC = () => {
 
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl font-bold">My Notes</h1>
+        <h1 className="text-2xl font-bold">My Demo Notes</h1>
         <Button onClick={() => setShowCreateForm(true)} className="bg-[#476A92] hover:bg-[#3d5c82]">
           <Plus className="w-4 h-4 mr-2" />
           New Note
