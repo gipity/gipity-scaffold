@@ -275,45 +275,7 @@ export default function TopHeader() {
                 Help
               </Button>
               
-              {isAuthenticated() ? (
-                <>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => {
-                      setLocation('/profile');
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                  >
-                    Profile
-                  </Button>
-                  {user && user.user_type === 'admin' && (
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      onClick={() => {
-                        setLocation('/admin-dashboard');
-                        setShowMobileMenu(false);
-                      }}
-                      className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                    >
-                      Admin
-                    </Button>
-                  )}
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => {
-                      handleLogout();
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
-                  >
-                    Sign Out
-                  </Button>
-                </>
-              ) : (
+              {!isAuthenticated() && (
                 <>
                   <Button
                     variant="outline"
