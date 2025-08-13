@@ -17,6 +17,8 @@ import DebugConsole from './DebugConsole';
 import { useToast } from '@/hooks/use-toast';
 import { useAuth } from '../lib/auth-context';
 import { useLocation } from 'wouter';
+import { NavigationItems } from '@/components/NavigationItems';
+import { MAIN_NAVIGATION, AUTH_NAVIGATION } from '@shared/navigation-config';
 
 export default function TopHeader() {
   const [showDebug, setShowDebug] = useState(false);
@@ -72,38 +74,12 @@ export default function TopHeader() {
             <>
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setLocation('/')}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  Home
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={handleNotesClick}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  Demo
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setLocation('/about')}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  About
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setLocation('/help')}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  Help
-                </Button>
+                <NavigationItems
+                  items={MAIN_NAVIGATION}
+                  layout="desktop"
+                  onNavigate={setLocation}
+                  handlers={{ handleNotesClick }}
+                />
               </div>
 
               {/* Mobile: Show hamburger menu */}
@@ -184,53 +160,17 @@ export default function TopHeader() {
             <>
               {/* Desktop Navigation */}
               <div className="hidden md:flex items-center space-x-2">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setLocation('/')}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  Home
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={handleNotesClick}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  Demo
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setLocation('/about')}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  About
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setLocation('/help')}
-                  className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                >
-                  Help
-                </Button>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={() => setLocation('/login')}
-                  className="border-[#476A92] text-[#476A92] hover:bg-[#476A92] hover:text-white transition-colors"
-                >
-                  Sign In
-                </Button>
-                <Button
-                  size="sm"
-                  onClick={() => setLocation('/signup')}
-                  className="bg-[#476A92] hover:bg-[#3d5c82] text-white transition-colors"
-                >
-                  Sign Up
-                </Button>
+                <NavigationItems
+                  items={MAIN_NAVIGATION}
+                  layout="desktop"
+                  onNavigate={setLocation}
+                  handlers={{ handleNotesClick }}
+                />
+                <NavigationItems
+                  items={AUTH_NAVIGATION}
+                  layout="desktop"
+                  onNavigate={setLocation}
+                />
               </div>
 
               {/* Mobile Hamburger Menu */}
@@ -256,75 +196,21 @@ export default function TopHeader() {
         {showMobileMenu && (
           <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40 md:hidden">
             <div className="px-4 py-3 space-y-2">
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  setLocation('/');
-                  setShowMobileMenu(false);
-                }}
-                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-              >
-                Home
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  handleNotesClick(e);
-                  setShowMobileMenu(false);
-                }}
-                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-              >
-                Demo
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  setLocation('/about');
-                  setShowMobileMenu(false);
-                }}
-                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-              >
-                About
-              </Button>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => {
-                  setLocation('/help');
-                  setShowMobileMenu(false);
-                }}
-                className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-              >
-                Help
-              </Button>
+              <NavigationItems
+                items={MAIN_NAVIGATION}
+                layout="mobile"
+                onNavigate={setLocation}
+                onClose={() => setShowMobileMenu(false)}
+                handlers={{ handleNotesClick }}
+              />
               
               {!isAuthenticated() && (
-                <>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      setLocation('/login');
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start border-[#476A92] text-[#476A92] hover:bg-[#476A92] hover:text-white transition-colors"
-                  >
-                    Sign In
-                  </Button>
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      setLocation('/signup');
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start bg-[#476A92] hover:bg-[#3d5c82] text-white transition-colors"
-                  >
-                    Sign Up
-                  </Button>
-                </>
+                <NavigationItems
+                  items={AUTH_NAVIGATION}
+                  layout="mobile"
+                  onNavigate={setLocation}
+                  onClose={() => setShowMobileMenu(false)}
+                />
               )}
             </div>
           </div>
