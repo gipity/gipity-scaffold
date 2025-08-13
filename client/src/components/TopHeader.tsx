@@ -274,43 +274,9 @@ export default function TopHeader() {
               >
                 Help
               </Button>
-              {!isAuthenticated() ? (
+              
+              {isAuthenticated() ? (
                 <>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => {
-                      setLocation('/login');
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start border-[#476A92] text-[#476A92] hover:bg-[#476A92] hover:text-white transition-colors"
-                  >
-                    Sign In
-                  </Button>
-                  <Button
-                    size="sm"
-                    onClick={() => {
-                      setLocation('/signup');
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start bg-[#476A92] hover:bg-[#3d5c82] text-white transition-colors"
-                  >
-                    Sign Up
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => {
-                      setLocation('/notes');
-                      setShowMobileMenu(false);
-                    }}
-                    className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
-                  >
-                    Demo
-                  </Button>
                   <Button
                     variant="ghost"
                     size="sm"
@@ -345,6 +311,30 @@ export default function TopHeader() {
                     className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
                   >
                     Sign Out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setLocation('/login');
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start border-[#476A92] text-[#476A92] hover:bg-[#476A92] hover:text-white transition-colors"
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      setLocation('/signup');
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start bg-[#476A92] hover:bg-[#3d5c82] text-white transition-colors"
+                  >
+                    Sign Up
                   </Button>
                 </>
               )}
