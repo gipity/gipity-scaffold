@@ -4,15 +4,25 @@ import { Home, Library } from '@/lib/icons';
 import { Calendar, Info } from 'lucide-react';
 import { Capacitor } from '@capacitor/core';
 import { usePlatform } from '@/hooks/use-platform';
+import { useAuth } from '../lib/auth-context';
 import { debug } from '@/lib/debug';
 
 
 
 export default function BottomNavigation() {
   const [location] = useLocation();
+  const [, setLocation] = useLocation();
   const [isKeyboardVisible, setIsKeyboardVisible] = useState(false);
   const [keyboardHeight, setKeyboardHeight] = useState(0);
   const { isAndroidDevice } = usePlatform();
+  const { isAuthenticated } = useAuth();
+
+  const handleNotesClick = (e: React.MouseEvent) => {
+    if (!isAuthenticated()) {
+      e.preventDefault();
+      setLocation('/login');
+    }
+  };
 
   useEffect(() => {
 
@@ -85,6 +95,7 @@ export default function BottomNavigation() {
           {/* Notes */}
           <Link 
             href="/notes" 
+            onClick={handleNotesClick}
             className={`flex flex-col items-center justify-center py-2 px-1 rounded-lg transition-all duration-200 ${
               location === '/notes' 
                 ? 'bg-[#476A92]/10 dark:bg-[#476A92]/20 text-[#476A92] dark:text-[#476A92]' 

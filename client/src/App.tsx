@@ -43,16 +43,26 @@ function Router() {
         </ProtectedRoute>
       </Route>
       
-      {/* Protected main app routes */}
+      {/* Public main app routes */}
       <Route path="/">
-        <ProtectedRoute>
-          <Layout>
-            <Home />
-          </Layout>
-        </ProtectedRoute>
+        <Layout>
+          <Home />
+        </Layout>
       </Route>
       
+      <Route path="/about">
+        <Layout>
+          <About />
+        </Layout>
+      </Route>
 
+      <Route path="/help">
+        <Layout>
+          <Help />
+        </Layout>
+      </Route>
+
+      {/* Protected user-specific routes */}
       <Route path="/profile">
         <ProtectedRoute>
           <Layout>
@@ -60,26 +70,11 @@ function Router() {
           </Layout>
         </ProtectedRoute>
       </Route>
+      
       <Route path="/notes">
         <ProtectedRoute>
           <Layout>
             <Notes />
-          </Layout>
-        </ProtectedRoute>
-      </Route>
-      
-      <Route path="/about">
-        <ProtectedRoute>
-          <Layout>
-            <About />
-          </Layout>
-        </ProtectedRoute>
-      </Route>
-
-      <Route path="/help">
-        <ProtectedRoute>
-          <Layout>
-            <Help />
           </Layout>
         </ProtectedRoute>
       </Route>
