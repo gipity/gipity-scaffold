@@ -176,7 +176,7 @@ export const About: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
-                    <span>Complete login/signup flow</span>
+                    <span>Complete login/signup flow with Supabase Auth</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
@@ -184,7 +184,7 @@ export const About: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
-                    <span>Email confirmation system</span>
+                    <span>Email confirmation system with app redirect</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
@@ -218,11 +218,11 @@ export const About: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
-                    <span>Rich note creation & editing</span>
+                    <span>Rich note creation with title and body text</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
-                    <span>Photo attachments</span>
+                    <span>Photo attachments via native camera integration</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
@@ -252,11 +252,19 @@ export const About: React.FC = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
-                    <span>Native camera integration</span>
+                    <span>Native camera integration with photo capture</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
-                    <span>Gallery photo selection</span>
+                    <span>Gallery photo selection and management</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
+                    <span>Native splash screen and safe area support</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
+                    <span>Appflow integration for device testing</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-[#476A92] rounded-full"></div>
