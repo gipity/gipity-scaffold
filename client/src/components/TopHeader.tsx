@@ -70,14 +70,31 @@ export default function TopHeader() {
           {isAuthenticated() ? (
             /* Authenticated user: Home button + Settings dropdown */
             <>
+              {/* Desktop: Show Home button */}
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={() => setLocation('/')}
-                className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                className="hidden md:inline-flex text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
               >
                 Home
               </Button>
+
+              {/* Mobile: Show hamburger menu */}
+              <div className="md:hidden">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setShowMobileMenu(!showMobileMenu)}
+                  className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200 transition-colors"
+                >
+                  {showMobileMenu ? (
+                    <X className="text-gray-600 w-5 h-5" />
+                  ) : (
+                    <Menu className="text-gray-600 w-5 h-5" />
+                  )}
+                </Button>
+              </div>
               
               {/* Settings Dropdown */}
               <DropdownMenu>
@@ -210,7 +227,7 @@ export default function TopHeader() {
         </div>
 
         {/* Mobile Menu Dropdown */}
-        {!isAuthenticated() && showMobileMenu && (
+        {showMobileMenu && (
           <div className="absolute top-full left-0 right-0 bg-white border-b border-gray-200 shadow-lg z-40 md:hidden">
             <div className="px-4 py-3 space-y-2">
               <Button
@@ -257,27 +274,80 @@ export default function TopHeader() {
               >
                 Help
               </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => {
-                  setLocation('/login');
-                  setShowMobileMenu(false);
-                }}
-                className="w-full justify-start border-[#476A92] text-[#476A92] hover:bg-[#476A92] hover:text-white transition-colors"
-              >
-                Sign In
-              </Button>
-              <Button
-                size="sm"
-                onClick={() => {
-                  setLocation('/signup');
-                  setShowMobileMenu(false);
-                }}
-                className="w-full justify-start bg-[#476A92] hover:bg-[#3d5c82] text-white transition-colors"
-              >
-                Sign Up
-              </Button>
+              {!isAuthenticated() ? (
+                <>
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    onClick={() => {
+                      setLocation('/login');
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start border-[#476A92] text-[#476A92] hover:bg-[#476A92] hover:text-white transition-colors"
+                  >
+                    Sign In
+                  </Button>
+                  <Button
+                    size="sm"
+                    onClick={() => {
+                      setLocation('/signup');
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start bg-[#476A92] hover:bg-[#3d5c82] text-white transition-colors"
+                  >
+                    Sign Up
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setLocation('/notes');
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                  >
+                    Demo
+                  </Button>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      setLocation('/profile');
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                  >
+                    Profile
+                  </Button>
+                  {user && user.user_type === 'admin' && (
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => {
+                        setLocation('/admin-dashboard');
+                        setShowMobileMenu(false);
+                      }}
+                      className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
+                    >
+                      Admin
+                    </Button>
+                  )}
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => {
+                      handleLogout();
+                      setShowMobileMenu(false);
+                    }}
+                    className="w-full justify-start text-red-600 hover:text-red-700 hover:bg-red-50 transition-colors"
+                  >
+                    Sign Out
+                  </Button>
+                </>
+              )}
             </div>
           </div>
         )}
