@@ -20,7 +20,7 @@ export const Help: React.FC = () => {
               className="w-16 h-16"
             />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Help & Support</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Help & Support</h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
             New to this scaffold? Here's everything you need to get started building your MVP.
           </p>

@@ -41,11 +41,11 @@ export const Home: React.FC = () => {
               className="w-16 h-16"
             />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
             Welcome back{user?.first_name ? `, ${user.first_name}` : ''}
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            Your native app scaffold is ready to customize
+            Your native, web & PWA scaffolding app is ready to customize
           </p>
         </div>
       </div>
@@ -86,13 +86,10 @@ export const Home: React.FC = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Try the demo features
             </h3>
-            <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-              See what's already working: notes with photos, user auth, and mobile-optimized UI
-            </p>
             <Link href="/notes">
               <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-6 py-3">
                 <FileText className="w-5 h-5 mr-2" />
-                Try it Now
+                Notes + Camera
               </Button>
             </Link>
           </div>
@@ -211,12 +208,12 @@ export const Home: React.FC = () => {
           <CardContent className="pt-8 pb-8">
             <div className="text-center space-y-6">
               <h3 className="text-2xl font-bold text-[#476A92] dark:text-white">
-                Need help customizing?
+                Ready to start your MVP app?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
                 Join the Gipity Studio for live support and deployment help
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex justify-center">
                 <a 
                   href="https://www.gipity.com" 
                   target="_blank" 
@@ -225,15 +222,6 @@ export const Home: React.FC = () => {
                 >
                   <Globe className="w-5 h-5" />
                   gipity.com
-                </a>
-                <a 
-                  href="https://github.com/gipity/gipity-scaffold" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-4 bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white border border-gray-200 dark:border-gray-600 rounded-lg transition-colors text-lg font-medium"
-                >
-                  <Code2 className="w-5 h-5" />
-                  GitHub Repo
                 </a>
               </div>
             </div>
