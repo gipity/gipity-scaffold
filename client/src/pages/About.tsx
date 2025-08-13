@@ -22,13 +22,13 @@ export const About: React.FC = () => {
             />
           </div>
           <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">Gipity Scaffolding App</h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-            A production-ready app foundation built for rapid prototyping and MVP development
+          <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+            Your native, web & PWA scaffolding app - ready to go
           </p>
           <div className="flex justify-center">
             <Badge className="bg-[#476A92] hover:bg-[#476A92]/80 text-white">
               <Star className="w-3 h-3 mr-1" />
-              v1.0.0-beta Ready
+              v1.0.0-beta
             </Badge>
           </div>
         </div>
@@ -437,6 +437,9 @@ export const About: React.FC = () => {
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
                 Get the Gipity scaffolding app and join our support studio today
+              </p>
+              <p className="text-sm text-gray-500 dark:text-gray-500 max-w-xl mx-auto">
+                Want to try the demo on your phone? Contact us for access to the Android APK file.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                 <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium" asChild>
