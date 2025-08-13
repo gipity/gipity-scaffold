@@ -39,17 +39,16 @@ export const Home: React.FC = () => {
             />
           </div>
           <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            {isAuthenticated() && user?.first_name 
-              ? `Welcome back, ${user.first_name}` 
-              : 'Gipity Scaffolding App'
-            }
+            Gipity Scaffolding App
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
-            {isAuthenticated() 
-              ? 'Your native, web & PWA scaffolding app is ready to customize'
-              : 'Build native iOS & Android apps with web technologies'
-            }
+            Your native, web & PWA scaffolding app - ready to go
           </p>
+          {isAuthenticated() && user?.first_name && (
+            <p className="text-lg text-gray-500 dark:text-gray-500 mt-2">
+              Welcome back, {user.first_name}
+            </p>
+          )}
         </div>
       </div>
 

@@ -31,7 +31,12 @@ export default function TopHeader() {
   const handleLogout = () => {
     debug.log('Logout button clicked');
     logout();
-    setLocation('/login');
+    toast({
+      title: "Logged out",
+      description: "You have been successfully logged out.",
+      duration: 3000,
+    });
+    setLocation('/');
   };
 
   return (
@@ -62,8 +67,7 @@ export default function TopHeader() {
                 onClick={() => setLocation('/')}
                 className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
               >
-                <HomeIcon className="w-4 h-4 mr-2" />
-                <span className="hidden sm:inline">Home</span>
+                Home
               </Button>
               
               {/* Settings Dropdown */}
@@ -134,7 +138,6 @@ export default function TopHeader() {
                   onClick={() => setLocation('/')}
                   className="text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
                 >
-                  <HomeIcon className="w-4 h-4 mr-2" />
                   Home
                 </Button>
                 <Button
@@ -186,7 +189,6 @@ export default function TopHeader() {
                 }}
                 className="w-full justify-start text-gray-600 hover:text-[#476A92] hover:bg-[#476A92]/10 transition-colors"
               >
-                <HomeIcon className="w-4 h-4 mr-2" />
                 Home
               </Button>
               <Button

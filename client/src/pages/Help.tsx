@@ -21,7 +21,10 @@ export const Help: React.FC = () => {
               className="w-16 h-16"
             />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Help & Support</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Gipity Scaffolding App</h1>
+          <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+            Your native, web & PWA scaffolding app - ready to go
+          </p>
         </div>
       </div>
 
