@@ -37,9 +37,9 @@ export const Help: React.FC = () => {
                 Ready to build your MVP?
               </h3>
               <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
-                Join the Gipity Studio for live support and deployment help
+                Get the Gipity scaffolding app and join the online support studio and community
               </p>
-              <div className="flex justify-center pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 justify-center pt-4">
                 <Button className="bg-[#476A92] hover:bg-[#3d5c82] text-white px-8 py-4 text-lg font-medium" asChild>
                   <a 
                     href="https://www.gipity.com" 
@@ -48,6 +48,12 @@ export const Help: React.FC = () => {
                   >
                     <Globe className="w-5 h-5 mr-2" />
                     gipity.com
+                  </a>
+                </Button>
+                <Button variant="outline" className="hover:bg-gray-50 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100 px-8 py-4 text-lg font-medium" asChild>
+                  <a href="mailto:support@gipity.com">
+                    <Mail className="w-5 h-5 mr-2" />
+                    Got questions?
                   </a>
                 </Button>
               </div>
