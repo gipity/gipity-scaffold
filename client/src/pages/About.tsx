@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Info, Camera, FileText, Smartphone, Code, Zap, Shield, Globe, Rocket, Star, ExternalLink, Mail } from 'lucide-react';
+import { Info, Camera, FileText, Smartphone, Code, Zap, Shield, Globe, Rocket, Star, ExternalLink, Mail, Database } from 'lucide-react';
 import iconImage from '../assets/icon-64x64.png';
 import icon2x from '../assets/icon-128x128.png';
 import icon3x from '../assets/icon-192x192.png';
@@ -93,60 +93,60 @@ export const About: React.FC = () => {
 
       {/* Key Features Grid */}
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <Card className="border-[#476A92]/20">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-[#476A92]/10 rounded-lg flex items-center justify-center">
-                  <FileText className="w-5 h-5 text-[#476A92]" />
+        <div className="grid md:grid-cols-2 gap-8">
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Shield className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </div>
-                <h3 className="font-semibold text-gray-800 dark:text-white">Rich Content Management</h3>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Complete Authentication</h4>
+                  <p className="text-gray-600 dark:text-gray-400">JWT auth, user profiles, admin roles, and email confirmation</p>
+                </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Full-featured note system with multimedia attachments, structured data, and real-time sync
-              </p>
             </CardContent>
           </Card>
-
-          <Card className="border-[#476A92]/20">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-[#476A92]/10 rounded-lg flex items-center justify-center">
-                  <Camera className="w-5 h-5 text-[#476A92]" />
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Database className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </div>
-                <h3 className="font-semibold text-gray-800 dark:text-white">Native Camera Integration</h3>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Production Database</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Supabase database and file storage with RLS policies and security</p>
+                </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Seamless photo capture and gallery access with Supabase storage backend
-              </p>
             </CardContent>
           </Card>
-
-          <Card className="border-[#476A92]/20">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-[#476A92]/10 rounded-lg flex items-center justify-center">
-                  <Smartphone className="w-5 h-5 text-[#476A92]" />
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Smartphone className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </div>
-                <h3 className="font-semibold text-gray-800 dark:text-white">Cross-Platform Ready</h3>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">iOS & Android Apps</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Native mobile deployment with Capacitor and Appflow integration</p>
+                </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Deploy to iOS, Android, and web from a single codebase with native performance
-              </p>
             </CardContent>
           </Card>
-
-          <Card className="border-[#476A92]/20">
-            <CardContent className="p-6">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-[#476A92]/10 rounded-lg flex items-center justify-center">
-                  <Shield className="w-5 h-5 text-[#476A92]" />
+          
+          <Card className="border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-shadow">
+            <CardContent className="pt-6">
+              <div className="flex items-start gap-4">
+                <div className="p-3 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                  <Camera className="w-6 h-6 text-gray-700 dark:text-gray-300" />
                 </div>
-                <h3 className="font-semibold text-gray-800 dark:text-white">Production Security</h3>
+                <div>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Native Camera Integration</h4>
+                  <p className="text-gray-600 dark:text-gray-400">Capture photos with native mobile camera, web fallback included</p>
+                </div>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                Built-in authentication, JWT tokens, and secure API architecture from day one
-              </p>
             </CardContent>
           </Card>
         </div>
