@@ -14,7 +14,11 @@ app.set('trust proxy', true);
 app.use((req, res, next) => {
   const host = req.get('Host') || '';
   if (host.includes('replit.app')) {
-    return res.status(403).send('Domain access blocked');
+    // Check if production domain access is enabled via secret
+    const isProdAccessEnabled = process.env.REPLIT_PROD_DOMAIN_ACCESS === 'true';
+    if (!isProdAccessEnabled) {
+      return res.status(403).send('Domain access blocked');
+    }
   }
   next();
 });
