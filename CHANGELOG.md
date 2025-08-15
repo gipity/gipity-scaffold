@@ -8,6 +8,7 @@ PROMPTLOG.md contains useful AI agent prompts to fix and enhance the scaffold ap
 ---
 
 ## tag: [v1.0.0-beta] — 14th August, 2025
+- 
 - Improve standard repo management and instructional files
 - Improve menu and navigation management
 - Small UI changes for demo pages
