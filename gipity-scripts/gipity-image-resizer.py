@@ -15,7 +15,7 @@
 #
 # MIT licensed – free to use in your own apps.
 # Please do not resell or repackage as part of a commercial toolkit unless you're building on it in good faith and contributing back.
-# ===========================================================
+#==============================================================================
 
 """
 INSTRUCTIONS: Gipity Scaffold Image Asset Generator

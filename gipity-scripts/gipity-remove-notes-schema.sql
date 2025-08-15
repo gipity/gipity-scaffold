@@ -1,3 +1,18 @@
+-- ==============================================================================
+-- Gipity Scaffold - Supabase Setup
+-- 
+-- Copyright (c) 2025 Gipity. Licensed under the MIT License.
+--
+-- This script is part of the Gipity Scaffold:
+-- https://github.com/gipity/gipity-scaffold
+--
+-- For additional support:
+-- https://www.gipity.com
+--
+-- MIT licensed – free to use in your own apps.
+-- Please do not resell or repackage as part of a commercial toolkit unless you're building on it in good faith and contributing back.
+-- ==============================================================================
+
 -- ===================================================================
 -- REMOVE NOTES TABLE AND ASSOCIATED SCHEMA
 -- One-off cleanup script to remove demo notes functionality
