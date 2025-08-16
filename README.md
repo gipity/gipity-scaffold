@@ -1,5 +1,7 @@
 # Gipity Scaffold App
 
+<p align="center"><img src="assets/gipity-repo-banner.png" alt="Gipity Banner"></p>
+
 # 📌 Important: Pre-Launch
 
 **Initial Public Release:** v1.0.0-alpha • **Updated**: 5th August 2025 • **Author**: Steve Procter
